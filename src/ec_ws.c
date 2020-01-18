@@ -36,6 +36,9 @@
 #include "multiply.h"
 #include "mont.h"
 #include "ec.h"
+#include "p256_table.h"
+#include "p384_table.h"
+#include "p521_table.h"
 
 FAKE_INIT(ec_ws)
 
@@ -567,9 +570,6 @@ cleanup:
 }
 
 #ifndef MAKE_TABLE
-#include "p256_table.c"
-#include "p384_table.c"
-#include "p521_table.c"
 
 STATIC void free_g_p256(ProtMemory **prot_g)
 {
