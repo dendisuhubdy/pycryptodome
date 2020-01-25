@@ -37,5 +37,8 @@ make_p384_table: make_p384_table.c ec_ws.c mont.c modexp_utils.c siphash.c
 make_p521_table: make_p521_table.c ec_ws.c mont.c modexp_utils.c siphash.c
 	$(CC) $(CFLAGS) $(CPPFLAGS) -o $@ $^ -DSYS_BITS=64 -DMAKE_TABLE
 
+x25519: x25519.c multiply_64.c
+	$(CC) $(CFLAGS) $(CPPFLAGS) -o $@ $^ -DSYS_BITS=64 -DPROFILE
+
 clean::
-	rm -f ec_ws_p256 ec_ws_p384 ec_ws_p521 mont.o modexp make_p256_table make_p384_table make_p521_table
+	rm -f ec_ws_p256 ec_ws_p384 ec_ws_p521 mont.o modexp make_p256_table make_p384_table make_p521_table x25519
